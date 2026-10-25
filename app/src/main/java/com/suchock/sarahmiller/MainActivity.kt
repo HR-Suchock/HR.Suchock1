@@ -62,7 +62,10 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
         clues.addAll(prefs.getStringSet("clues", emptySet()) ?: emptySet())
         quests.addAll(prefs.getStringSet("quests", emptySet()) ?: emptySet())
         completedQuests.addAll(prefs.getStringSet("done", emptySet()) ?: emptySet())
-        messages.addAll(prefs.getStringSet("messages", defaultMessages()) ?: defaultMessages())
+        messages.addAll(
+    prefs.getStringSet("messages", defaultMessages().toSet())
+        ?: defaultMessages().toSet()
+)
         showMenu()
     }
 
